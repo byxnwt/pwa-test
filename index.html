@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PWA 测试</title>
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="一个用来测试分享链接的极简 PWA 页面">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding: calc(24px + env(safe-area-inset-top)) 24px calc(24px + env(safe-area-inset-bottom));
+      background: #0f172a;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      font-size: clamp(16px, 4.4vw, 20px);
+      line-height: 1.8;
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+    }
+    p {
+      max-width: 30em;
+      text-align: center;
+      white-space: pre-line;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+  <p>🐳 测试成功！
+
+如果你能看到这段话，说明链接能打开、PWA 能加载。
+这是一个用来测试分享链接的极简页面，没有后端、没有登录、不收集任何数据。
+你可以把它“添加到主屏幕”，断网后再打开，看看它还在不在。
+
+—— 来自一个正在折腾 DSH 的学生</p>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js').catch(function (err) {
+          console.warn('Service Worker 注册失败：', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
