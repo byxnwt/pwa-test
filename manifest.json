@@ -1,0 +1,20 @@
+{
+  "name": "PWA 测试",
+  "short_name": "PWA测试",
+  "description": "一个用来测试分享链接的极简 PWA 页面",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
